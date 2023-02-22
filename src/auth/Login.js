@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Login = (setToken) =>{
+const Login = ({setToken}) =>{
     const authHandler = () =>{
         setToken(true);
     }
@@ -14,7 +14,12 @@ const Login = (setToken) =>{
 
 const LoginSection = styled.div`
     background-color: white;
-    height: 100%;
+    width: 100%;
+    height: 65vh;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export default Login;
