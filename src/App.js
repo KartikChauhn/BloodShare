@@ -3,17 +3,18 @@ import Auth from "./auth/Auth";
 import Dashboard from "./home/Dashboard";
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-
+import LogoHeader from "./LogoHeader";
 
 
 function App() {
 
   const [token,setToken] = useState(false);
-  console.log(token);
+
 
   if(!token){
     return(
       <div className="">
+        <LogoHeader/>
         <BrowserRouter>
           <Auth setToken={setToken}/>
         </BrowserRouter>

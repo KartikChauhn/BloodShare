@@ -53,9 +53,11 @@ const AuthSection = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-`
+    min-height: 90vh;
+
+    `
 const Box = styled.div`
+    box-shadow: 1px 1px 20px grey;
     min-height: 80vh;
     background-color: #f2f2f2;
     width: 30vw;
@@ -66,14 +68,14 @@ const Box = styled.div`
     padding: 1rem;
     position: relative;
     h3{
-        color: #818181;
+        color: #444444;
         /* height: 4vh; */
         padding: 0.2rem;
     }
 `
 const InnerBox = styled.div`
     margin: 1rem;
-    border: 2px solid grey;
+    border: 1px solid grey;
     height: 100%;
     width: 100%;
 `
@@ -83,8 +85,9 @@ const Director = styled.div`
     width: 100%;
 
     .on{
-        background-color: #d8d8d8;
+        background-color: #eaeaea;
         color: #5c5c5c;
+        border-top: none;
     }
    button{
         width: 50%;
@@ -93,6 +96,7 @@ const Director = styled.div`
         font-size: 1.5rem;
         color: black;
         background-color: white;
+        border-top: 2px solid green;
    }
 
 `

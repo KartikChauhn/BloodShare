@@ -6,9 +6,12 @@ const GlobalStyles = createGlobalStyle`
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
-    /* background-color: #6d6d6d; */
+    font-family: 'Dosis', sans-serif;;
 }
 
+body{
+    background-color: #e2e2e2;  
+}   
 
 `;
 
