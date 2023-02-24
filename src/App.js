@@ -1,23 +1,27 @@
 
-import Auth from "./auth/Auth";
-import Dashboard from "./home/Dashboard";
+import Auth from "./components/auth/Auth";
+import Dashboard from "./components/home/Dashboard";
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import LogoHeader from "./LogoHeader";
+import styled from "styled-components";
 
 
 function App() {
 
-  const [token,setToken] = useState(false);
+  const [token,setToken] = useState(true);
 
 
   if(!token){
     return(
       <div className="">
-        <LogoHeader/>
-        <BrowserRouter>
-          <Auth setToken={setToken}/>
-        </BrowserRouter>
+        <Container>
+            <LogoHeader/>
+            <BrowserRouter>
+              <Auth setToken={setToken}/>
+            </BrowserRouter>
+        </Container>
+        
       </div>
     )
   }
@@ -28,5 +32,9 @@ function App() {
     </div>
   );
 }
+
+const Container = styled.div`
+  position: relative;
+`
 
 export default App;

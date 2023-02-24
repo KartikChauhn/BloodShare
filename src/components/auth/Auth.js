@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BrowserRouter, Route, Routes,useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./SIgnup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const Auth = ({setToken}) =>{
@@ -15,6 +15,10 @@ const Auth = ({setToken}) =>{
     })
 
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        navigate("/login");
+    },[]);
 
     return(
         <AuthSection>
@@ -30,11 +34,11 @@ const Auth = ({setToken}) =>{
                         </button>
                         <button className={!whichOn.signup?"on":""} onClick={()=>{
                             setWhichOn({login:false,signup:true})
-                            navigate("/Signup")
+                            navigate("/signup")
                         }}>
                             Signup
                         </button>
-                    </Director>
+                    </Director> 
                     
                         <Routes>
                             <Route path="/login" element={<Login setToken={setToken}/>}/>
@@ -54,13 +58,18 @@ const AuthSection = styled.div`
     justify-content: center;
     align-items: center;
     min-height: 90vh;
-
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
     `
 const Box = styled.div`
     box-shadow: 1px 1px 20px grey;
     min-height: 80vh;
     background-color: #f2f2f2;
-    width: 30vw;
+    width: 30rem ;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;

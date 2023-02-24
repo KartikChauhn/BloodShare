@@ -10,8 +10,15 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body{
-    background-color: #e2e2e2;  
+    background-color: #ffffff;  
 }   
+
+
+@media screen and (max-width: 650px) {
+  body {
+    background-color: lightgreen;
+  }
+}
 
 `;
 
