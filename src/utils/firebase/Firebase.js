@@ -6,6 +6,8 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { GoogleAuthProvider } from "firebase/auth";
 
+import { GithubAuthProvider } from "firebase/auth";
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -23,7 +25,8 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 
-export const provider = new GoogleAuthProvider();
+export const gitprovider = new GithubAuthProvider();
+export const gprovider = new GoogleAuthProvider();
 
 export const auth = getAuth(app);
 auth.languageCode = 'it';

@@ -1,19 +1,35 @@
 import styled from "styled-components";
-
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () =>{
+
+    const navigate = useNavigate();
+    const handleAssembly=()=>{
+        navigate("/assembly");
+    }
+    const handleLokSabha=()=>{
+        navigate("/loksabha");
+    }
+    const handlePanchayat=()=>{
+        navigate("/panchayat");
+    }
+
+    const goToUser =()=>{
+        navigate("/userprofile")
+    }
     return(
         <Container>
             <Userprofile>
                 <img src="" alt="" />
                 <h3>Welcome</h3>
-                <h2>Kartik Chauhan</h2>
+                <h2 onClick={goToUser}>Kartik Chauhan</h2>
             </Userprofile>
 
             <Usernavigate>
                 <h2>Election List</h2>
-                <a href="">Recent</a>
-                <a href="">Upcoming</a>
+                <a href="#" onClick={handleAssembly}>Asembly</a>
+                <a href="#" onClick={handleLokSabha}>Lok Sabha</a>
+                <a href="#" onClick={handlePanchayat}>Panchayat</a>
             </Usernavigate>
 
             <h3 className="heading">Logout</h3>
@@ -26,8 +42,10 @@ const Sidebar = () =>{
 const Container = styled.div`
     width: 100%;
     height: 100%;
-    background-color:#f2f2f2;
-    padding: 2vw;
+    /* background-color:#f2f2f2; */
+    background-color:#2b2a38;
+    /* background-color #3451f1 ; */
+    padding: 2vh 2vw;
     .heading{
         height: 10%;
         padding: 2rem 0 0 0 ;
@@ -49,9 +67,13 @@ const Userprofile = styled.div`
         border-radius: 50%;
         background-color: grey;
     }
-    h2,h3{
-        /* color: #00a400; */
+    h2{
+        color: white;
+        cursor: pointer;
         margin: 0.5rem  1rem;
+        :hover{
+            color: #04b604;
+        }
     }
     h3{
         color: #00a400;
@@ -73,13 +95,17 @@ const Usernavigate = styled.div`
     width: 100%;
     height: 50%;
     border-radius: 2%;
-    color: #191919;
+    color: white;
     a{
         text-decoration: none;
         font-size: 1.2rem;
         margin: 0.6rem;
         display: block;
-        color: #151515;
+        color: pink;
+        font-weight: 5  00;
+        :hover{
+            color: #00dd00;
+        }
     }
     @media screen and (max-width: 650px) {
         height: 30%;

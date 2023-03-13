@@ -5,11 +5,26 @@ import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import LogoHeader from "./LogoHeader";
 import styled from "styled-components";
+import Loader from "./components/Loader";
 
 
 function App() {
 
-  const [token,setToken] = useState(true);
+  const [token,setToken] = useState(false);
+  const [load,setLoad]  = useState(true);
+
+  const loadHandler = () =>{
+    setTimeout(() =>{
+      setLoad(false)
+    },3000);
+  }
+  loadHandler();
+
+  if(load){
+    return(
+      <Loader/>
+    ) 
+  }
 
 
   if(!token){
@@ -28,7 +43,9 @@ function App() {
 
   return (
     <div className="App">
-      <Dashboard/>
+      <BrowserRouter>
+        <Dashboard/>
+      </BrowserRouter>
     </div>
   );
 }
@@ -36,5 +53,5 @@ function App() {
 const Container = styled.div`
   position: relative;
 `
-
+ 
 export default App;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { BrowserRouter, Route, Routes,useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./SIgnup";
+import vback from "./vback.jpg";
 import { useEffect, useState } from "react";
 
 
@@ -22,6 +23,12 @@ const Auth = ({setToken}) =>{
 
     return(
         <AuthSection>
+
+            <Sideimage>
+                {/* <Flash></Flash> */}
+                <img src={vback} alt="image ishere" />  
+            </Sideimage>
+            <Main>
             <Box>
                 <h3>Please Login to continue</h3>
                 <InnerBox>
@@ -42,11 +49,12 @@ const Auth = ({setToken}) =>{
                     
                         <Routes>
                             <Route path="/login" element={<Login setToken={setToken}/>}/>
-                            <Route path="/signup" element={<Signup/>}/>
+                            <Route path="/signup" element={<Signup setToken={setToken}/>}/>
                         </Routes>
                 
                 </InnerBox>
             </Box>  
+            </Main>
         </AuthSection>
         
     )
@@ -55,36 +63,57 @@ const Auth = ({setToken}) =>{
 
 const AuthSection = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    min-height: 90vh;
     position: fixed;
     top: 0%;
     left: 0%;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(2px);
-    `
+    animation: showUp 1s;
+`
+
+const Sideimage = styled.div`
+    width: 55vw;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-top-right-radius: 50%;
+    }
+
+`
+
+
+const Main = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45vw;
+`
 const Box = styled.div`
     box-shadow: 1px 1px 20px grey;
-    min-height: 80vh;
-    background-color: #f2f2f2;
-    width: 30rem ;
+    background-color: #f9f7f7;
+    /* max-width: 60vw ; */
+    width: 25rem;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
     position: relative;
+    transition: all 1s;
     h3{
         color: #444444;
-        /* height: 4vh; */
         padding: 0.2rem;
     }
 `
 const InnerBox = styled.div`
     margin: 1rem;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     height: 100%;
     width: 100%;
 `
@@ -97,15 +126,18 @@ const Director = styled.div`
         background-color: #eaeaea;
         color: #5c5c5c;
         border-top: none;
+        color: grey;
     }
-   button{
+    button{
+        color: green;
         width: 50%;
         height: 6vh;
         border: none;
         font-size: 1.5rem;
-        color: black;
+        border-radius: 10rem;
         background-color: white;
         border-top: 2px solid green;
+        cursor: pointer;
    }
 
 `

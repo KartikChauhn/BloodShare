@@ -1,15 +1,24 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import LogoHeader from "../../LogoHeader";
 import Center from "./Center";
 import Sidebar from "./SIdebar";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () =>{
+
+    const navigate = useNavigate();
+    const [showBar ,setShowBar] = useState(false);
+
+    useEffect(()=>{
+        navigate("/");
+    },[]);
+
     return(
         <DashboardContainer>
-            <LogoHeader></LogoHeader>
-
+            <LogoHeader setShowBar={setShowBar} showBar={showBar} />
             <Contentholder>
-                <Bar>
+                <Bar className={showBar ? "on" :""}>
                     <Sidebar/>
                 </Bar>
                 <Center/>
@@ -24,7 +33,11 @@ const Dashboard = () =>{
 const DashboardContainer = styled.div`
     height: 100vh;
     width: 100vw;
-    `
+    .on{
+        background-color: green;
+        visibility: visible;
+    }
+`
 const Contentholder = styled.div`
     display: flex;
     height: 92vh;
@@ -39,9 +52,8 @@ const Bar = styled.div`
         z-index: 1;
         width: 90vw;
         visibility: hidden;
-        /* transform: translate(-100%,0); */
     }
-    /* border: 1px black solid; */
+    
 `
 
 export default Dashboard;

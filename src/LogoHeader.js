@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
-const LogoHeader = () =>{
+const LogoHeader = ({setShowBar,showBar}) =>{
+
+    const toUser = () =>{
+        setShowBar(!showBar);
+        console.log(showBar)
+    }
+
     return (
         <Header>
             <h1>VRight</h1>
-            <Spancontainer>
+            <Spancontainer onClick={toUser}>
                 <Spans/>
                 <Spans/>
                 <Spans/>
@@ -16,13 +22,17 @@ const LogoHeader = () =>{
 const Header = styled.div`
     height: 8vh;
     margin: 0%;
-    background-color: #c1c1c1;;
+    /* background-color: #c1c1c1;; */
+    background-color: #f2f2f2;
+
+    border-bottom: 1vh solid grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 50vw;
     h1{
         transform: translate(-50%,0);
+        font-family: 'Dancing Script', cursive;
     }
     /* border-bottom: 1px solid black; */
     @media screen and (max-width: 650px) {
