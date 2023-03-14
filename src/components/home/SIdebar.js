@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import profile from "../../utils/images/profile.jpg"
 
 const Sidebar = () =>{
 
@@ -20,7 +21,9 @@ const Sidebar = () =>{
     return(
         <Container>
             <Userprofile>
-                <img src="" alt="" />
+                <div className="imageHolder">
+                    <img src={profile} alt="profile" />
+                </div>
                 <h3>Welcome</h3>
                 <h2 onClick={goToUser}>Kartik Chauhan</h2>
             </Userprofile>
@@ -65,7 +68,8 @@ const Userprofile = styled.div`
         height: 10vw;
         /* border: 2px blue solid; */
         border-radius: 50%;
-        background-color: grey;
+        object-fit: cover;
+        /* background-color: grey; */
     }
     h2{
         color: white;

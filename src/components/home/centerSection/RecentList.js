@@ -10,7 +10,7 @@ const RecentList = () =>{
     
 
     useEffect(()=>{
-            datass().then((x)=>{console.log(x)});
+            // datass().then((x)=>{console.log(x)});
             
             // var raw = "";
 

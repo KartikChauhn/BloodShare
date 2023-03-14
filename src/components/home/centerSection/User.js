@@ -4,10 +4,15 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import CastVote from "./CasteVote";
+import { AiFillEdit } from 'react-icons/ai';
+import { useState } from "react";
+
 
 
 
 const User = ({setShowUser}) =>{
+
+    const [editingForm , setEditingForm] = useState(false);
 
     const {register , handleSubmit, formState: {errors}}  = useForm();
 
@@ -16,9 +21,15 @@ const User = ({setShowUser}) =>{
         navigate("/");
     }
 
+    const allowEdit = () =>{
+        console.log("wokring")
+        setEditingForm(!editingForm)
+    }
+
     return(
         <Conatiner>
             <Profile>
+                <button className="edit" onClick={allowEdit}> <AiFillEdit/> </button>
                 <Header>
                     <h2>Account Id : 1</h2>
                     <button onClick={goToHome}><AiOutlineHome/></button>
@@ -35,7 +46,7 @@ const User = ({setShowUser}) =>{
                     {/* <input type="submit" className="login" value="Signup" /> */}
                 </Form>
                 <h3>Address</h3>
-                <Form>
+                <Form className={allowEdit? "allow" :""}>
                     <label>State
                     <input type="text"  placeholder="Haryana" {...register("state",{ required: true})}></input></label>
                     <label>City
@@ -68,9 +79,14 @@ const Conatiner = styled.div`
     @media screen and (max-width: 650px) {
         flex-direction: column;
         overflow-y: scroll;
+        height: auto;
         ::-webkit-scrollbar{
             display: none;
         }
+    }
+
+    .allow{
+        pointer-events: all;
     }
 `
 
@@ -99,11 +115,31 @@ const Profile = styled.div`
     width: 70%;
     height: 100%;
     background-color: white;
+    position: relative;
     /* border: 2px blue solid; */
     overflow-y: scroll;
     overflow-x: hidden;
     ::-webkit-scrollbar{
         display: none;
+    }
+
+    .edit{
+        position: absolute;
+        top: 90%;
+        left: 90%;
+        font-size: 1.8rem;
+        cursor: pointer;
+        /* padding: 0rem; */
+        /* padding: 0.2rem 0.3rem; */
+        background-color: white;
+        color: #1212cf;
+        text-align: center;
+        border: none;
+        border-radius: 50%;
+        transition: all ease 0.1s;
+        :hover{
+            color: #00ae03;
+        }
     }
 
 
@@ -112,8 +148,8 @@ const Profile = styled.div`
     }
     @media screen and (max-width: 650px) {
         width: 100vw;
-        overflow: visible;
-        
+        /* overflow: visible; */
+        /* padding-bottom: 1rem; */
     }
 `
 const CastVoteScreen = styled.div`

@@ -87,7 +87,7 @@ const Searcharea = styled.div`
         border: none;
         border-bottom: 1px solid grey;
         font-size: 1rem;
-        color: #000000;
+        color: #000000; 
         font-weight: 450;
     }
 
@@ -96,6 +96,7 @@ const Searcharea = styled.div`
         border: none;
         border-radius: 1rem;
         background-color: #38d738;
+        cursor: pointer;
     }
 `
 
