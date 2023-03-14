@@ -69,43 +69,7 @@ const Signup = ({setToken}) =>{
 
     
 
-    const gitHandler = () =>{
-        signInWithPopup(auth, gitprovider)
-        .then((result) => {
-            const credential = GithubAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            const user = result.user;
-            console.log(user);
-            CheckFirstTime(user);
-            // ...
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.customData.email;
-            const credential = GithubAuthProvider.credentialFromError(error);
-            
-            //In case user has account with other credential
-            if (error.code === 'auth/account-exists-with-different-credential') {
-                
-                setPendingCred(credential);
-                fetchSignInMethodsForEmail(auth ,email).then(function(methods) {
-                setMethodsSignIn(methods);
-                if (methods[0] === 'password') {
-                        var password = promptUserForPassword(); // TODO: implement promptUserForPassword.
-                        signInWithEmailAndPassword(auth ,email, password).then(function(result) {
-                            return linkWithCredential(result.user,pendingCred);
-                        }).then(function() {
-                            console.log("worked");
-                        //   goToApp();
-                        });
-                        return;
-                }
-                setAnotherPopUp(true);
 
-                });
-            }
-        });
-    }
 
 
 
@@ -213,7 +177,6 @@ const Signup = ({setToken}) =>{
 
             <Socialsection>
                 <Social className="red" onClick={goog}><SiGoogle/><h3 className="iconsCo">Google</h3></Social>
-                <Social className="blue" onClick={gitHandler} ><BsGithub/><h3 className="iconsCo">Github</h3></Social>
                 
             </Socialsection>
         </SignUpSection>
@@ -275,9 +238,6 @@ const Socialsection = styled.div`
     flex-wrap: wrap;
     width: 100%;
     /* width: 100%; */
-    .blue{
-        background-color: #000000;
-    }
     .red{
         background-color: #ce2323;
     }
@@ -289,7 +249,7 @@ const Social = styled.div`
    width: 35%;
     height: 4vh;
     text-align: center;
-    margin: 1.4rem auto;
+    margin: 1rem auto;
     border-radius: 1rem;
     display: flex;
     align-items: center;
