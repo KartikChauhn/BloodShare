@@ -9,7 +9,7 @@ const LogoHeader = ({setShowBar,showBar}) =>{
 
     return (
         <Header>
-            <h1>VRight</h1>
+            <h1> <span>+</span>BloodShare</h1>
             <Spancontainer onClick={toUser}>
                 <Spans/>
                 <Spans/>
@@ -33,6 +33,10 @@ const Header = styled.div`
     h1{
         transform: translate(-50%,0);
         font-family: 'Dancing Script', cursive;
+        span{
+            color: red;
+            font-size: 2rem;
+        }
     }
     /* border-bottom: 1px solid black; */
     @media screen and (max-width: 650px) {

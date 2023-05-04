@@ -39,6 +39,7 @@ const Signup = ({setToken}) =>{
     }
 
     const onSubmit = (data) =>{
+        console.log(data)
         setEnteredData(data);
         createUserWithEmailAndPassword(auth, data.email, data.password)
           .then((userCredential) => {
@@ -60,7 +61,6 @@ const Signup = ({setToken}) =>{
                 setPendingCred(credential);
                 fetchSignInMethodsForEmail(auth ,email).then(function(methods) {
                 setMethodsSignIn(methods);
-                withOtherCred();
 
                 });
             }
@@ -115,26 +115,7 @@ const Signup = ({setToken}) =>{
     }
 
 
-    //If user want to add other ceredential with same account
-    const withOtherCred = () =>{
-        setAnotherPopUp(false);
-        if(methodsSignIn[0] === 'google.com'){
-            signInWithPopup(auth ,gprovider).then(function(result) {
-                return linkWithCredential(result.user,pendingCred);
-            }).then(function() {
-                console.log("worked");
-            //   goToApp();
-            });
-            return;
-        }
-        signInWithPopup(auth ,gitprovider).then(function(result) {
-            return linkWithCredential(result.user,pendingCred);
-        }).then(function() {
-            console.log("worked");
-        //   goToApp();
-        });
 
-    }
 
 
 
@@ -160,18 +141,6 @@ const Signup = ({setToken}) =>{
                 <input type="submit" className="login" value="Signup" />
             </form>
             <h4>OR</h4>
-
-            {anotherPopup ?
-                <Confirm>
-                    <div>
-                        <h1 on onClick={CancelAnotherPopUp}>x</h1>
-                        <h2>You already have account with different ceredential!</h2>
-                        <h3>If you want to continue with this ceredential as well press Continue.</h3>
-                        <button onClick={withOtherCred}>Continue</button>
-                    </div>
-                </Confirm>
-                :<></>
-            }
             
             
 

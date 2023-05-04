@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
-    font-family: 'Dosis', sans-serif;
+    ${'' /* font-family: 'Dosis', sans-serif; */}
     transition: all ease 0.2s;
     
 }
@@ -17,7 +17,8 @@ input{
 body{
     /* background-color: #ffffff;  */
     /* background-color: #eafbeb;  */
-    background-color: #d6f2d8; 
+    background-color: #f6f9f6; 
+    ${'' /* background-color: #ffb4b4; */}
      
 }   
 

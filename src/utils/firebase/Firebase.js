@@ -11,15 +11,14 @@ import { GithubAuthProvider } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDTgdrYYnkRxOyZzwfxKrda9iS-LMEnmqo",
-  authDomain: "vright-5b11b.firebaseapp.com",
-  projectId: "vright-5b11b",
-  storageBucket: "vright-5b11b.appspot.com",
-  messagingSenderId: "925420280351",
-  appId: "1:925420280351:web:f29338ef7705820b70932a",
-  measurementId: "G-1FGV4JSCL1"
+  apiKey: "AIzaSyBostWoa0Cn51VVKBl7JCB7_nCDT9AdbS8",
+  authDomain: "bloodshare-8e808.firebaseapp.com",
+  projectId: "bloodshare-8e808",
+  storageBucket: "bloodshare-8e808.appspot.com",
+  messagingSenderId: "709960832534",
+  appId: "1:709960832534:web:ca8afedb0eea2e5df58737",
+  measurementId: "G-7K86DB7PMB"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);

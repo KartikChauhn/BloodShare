@@ -1,10 +1,12 @@
 import styled from "styled-components"
-import ElectionCard from "./ElectionCard";
+import ElectionCard from "./Post";
 import recentElection from "../../../utils/list";
+import { AiOutlineHome } from 'react-icons/ai';
+
 
 import { useNavigate } from "react-router-dom";
 
-const Assembly = () =>{
+const Donor = () =>{
 
     const navigate = useNavigate();
 
@@ -16,8 +18,9 @@ const Assembly = () =>{
 
         <Container>
             <Header>
-                <h1>Assembly</h1>
-                <h3 onClick={back}>Recent/upcoming</h3>
+                <h1>Donor</h1>
+                <button onClick={back} className="backToHome"><AiOutlineHome/></button>
+                
             </Header>
             <List>
                 {recentElection.map((election)=>{
@@ -35,7 +38,6 @@ const Container = styled.div`
     flex-direction: column;
     height: 100%;
     padding: 1rem;
-    /* border: 3px solid black; */
     h1,h3{
         margin:  0 1rem;
     }
@@ -52,6 +54,17 @@ const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .backToHome{
+        cursor: pointer;
+        border: none;
+        font-size: 1.4rem;
+        background-color: transparent;
+        color: black;
+        margin-right: 1rem;
+        :hover{
+            color: grey;
+        }
+    }
 `
 
 const List = styled.div`
@@ -63,4 +76,4 @@ const List = styled.div`
     }
     display: flex;
 `
-export default Assembly;
+export default Donor;

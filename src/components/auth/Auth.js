@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes,useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./SIgnup";
 import vback from "./vback.jpg";
+import blooddonation from "./blood-donation.svg"
 import { useEffect, useState } from "react";
 
 
@@ -26,7 +27,7 @@ const Auth = ({setToken}) =>{
 
             <Sideimage>
                 {/* <Flash></Flash> */}
-                <img src={vback} alt="image ishere" />  
+                <img src={blooddonation} alt="image ishere" />  
             </Sideimage>
             <Main>
             <Box>
@@ -71,6 +72,7 @@ const AuthSection = styled.div`
     height: 100%;
     width: 100%;
     animation: showUp 1s;
+
 `
 
 const Sideimage = styled.div`
@@ -96,7 +98,7 @@ const Main = styled.div`
 `
 const Box = styled.div`
     box-shadow: 1px 1px 20px grey;
-    background-color: #f9f7f7;
+    background-color: inherit;
     /* max-width: 60vw ; */
     width: 25rem;
     border-radius: 0.5rem;
@@ -123,10 +125,9 @@ const Director = styled.div`
     width: 100%;
 
     .on{
-        background-color: #eaeaea;
-        color: #5c5c5c;
+        background-color: #c7c7c7;
         border-top: none;
-        color: grey;
+        color: white;
     }
     button{
         color: green;

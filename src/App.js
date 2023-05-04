@@ -10,13 +10,13 @@ import Loader from "./components/Loader";
 
 function App() {
 
-  const [token,setToken] = useState(false);
+  const [token,setToken] = useState(true);
   const [load,setLoad]  = useState(true);
 
   const loadHandler = () =>{
     setTimeout(() =>{
       setLoad(false)
-    },3000);
+    },3000  );
   }
   loadHandler();
 

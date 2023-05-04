@@ -1,30 +1,40 @@
 import styled from "styled-components"
-import ElectionCard from "./ElectionCard";
+import ElectionCard from "./Post";
 import recentElection from "../../../utils/list";
+import { AiOutlineHome } from 'react-icons/ai';
 
 import { useNavigate } from "react-router-dom";
 
-const Panchayat = () =>{
+const Assembly = () =>{
 
     const navigate = useNavigate();
 
     const back = () =>{
-        navigate("/")
+        navigate("/");
     }
 
     return (
 
         <Container>
             <Header>
-                <h1>Panchayat</h1>
-                <h3 onClick={back}>Recent/upcoming</h3>
+                <h1>Seeker</h1>
+                <button onClick={back} className="backToHome"><AiOutlineHome/></button>
             </Header>
             <List>
-                {recentElection.map((election)=>{
+                {/* {recentElection.map((election)=>{
                     return(
                         <ElectionCard election={election}/>
                         )
-                    })}
+                    })} */}
+                    {
+                        recentElection.map((election,index)=>(
+                            <>
+                            <ElectionCard
+                            key={index}
+                             election={election}/>
+                            </>
+                        ))
+                    }
             </List>
         </Container>
     )
@@ -35,15 +45,19 @@ const Container = styled.div`
     flex-direction: column;
     height: 100%;
     padding: 1rem;
+    /* border: 3px solid black; */
     h1,h3{
         margin:  0 1rem;
     }
-    h3{
+    .backToHome{
         cursor: pointer;
-        color: grey;
+        border: none;
+        font-size: 1.4rem;
+        background-color: transparent;
+        color: black;
+        margin-right: 1rem;
         :hover{
-            color: #00c642;
-            transition: all ease 0.4s;
+            color: grey;
         }
     }
 `
@@ -62,4 +76,4 @@ const List = styled.div`
     }
     display: flex;
 `
-export default Panchayat;
+export default Assembly;

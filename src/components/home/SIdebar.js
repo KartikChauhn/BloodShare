@@ -29,10 +29,10 @@ const Sidebar = () =>{
             </Userprofile>
 
             <Usernavigate>
-                <h2>Election List</h2>
-                <a href="#" onClick={handleAssembly}>Asembly</a>
-                <a href="#" onClick={handleLokSabha}>Lok Sabha</a>
-                <a href="#" onClick={handlePanchayat}>Panchayat</a>
+                <h2>Type</h2>
+                <a href="#" onClick={handleAssembly}>Seeker</a>
+                <a href="#" onClick={handleLokSabha}>Donor</a>
+                <a href="#" onClick={handlePanchayat}>Hospitals/Bank</a>
             </Usernavigate>
 
             <h3 className="heading">Logout</h3>

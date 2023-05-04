@@ -13,25 +13,11 @@ const CastVote = () =>{
 
     return(
         <Container>
-            <Header>
-                <h2>Cast Vote</h2>
-                <button className="castButton">Cast Your Vote</button>
-            </Header>
             <Notification>
-                <h4>Elections / Notifications</h4>
+                <h2>Requests</h2>
                 <button className={notify ? "notifyOn": ""} onClick={notifyHit}><span>x</span></button>
             </Notification>
-            <ElectionList>
-                {recentElection.map((election)=>{
-                    return(
-                        <Election>
-                            <h5>{election.type}:</h5>
-                            <h5>{election.startDate} - {election.endDate}</h5>
-                            
-                        </Election>
-                    )
-                })}
-            </ElectionList>
+           
             
         </Container>
     )
@@ -73,18 +59,13 @@ const Container = styled.div`
 `
 
 
-const Header = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1rem;
-`
+
 const Notification = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0.4rem;
+    padding: 0.2rem 0.4rem;
     align-items: center;
-    h4{
+    h2{
         color: #393939;
     }
     button{
@@ -115,16 +96,6 @@ const Notification = styled.div`
 
         
     }
-`
-
-const ElectionList = styled.div`
-    width: 100%;
-`
-const Election = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.4rem;
 `
 
 export default CastVote;

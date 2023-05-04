@@ -48,6 +48,7 @@ const Container = styled.div`
     align-items: center;
     backdrop-filter: blur(1px);
     animation: showUp 0.5s;
+    z-index: 10;
     :hover{
         box-shadow: 1px 1px 10px green;
     }

@@ -39,30 +39,31 @@ const Login = ({setToken}) =>{
     
     /////function call on login button press and api calling for the verification.
     const onSubmit = (data) => {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        // myHeaders.append("Access-Control-Allow-Origin","*");
+        console.log(data);
+        // var myHeaders = new Headers();
+        // myHeaders.append("Content-Type", "application/json");
+        // // myHeaders.append("Access-Control-Allow-Origin","*");
 
-        var raw = JSON.stringify(data);
+        // var raw = JSON.stringify(data);
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
+        // var requestOptions = {
+        //     method: 'POST',
+        //     headers: myHeaders,
+        //     body: raw,
+        //     redirect: 'follow'
+        // };
 
-        const checkUser =  async () => {
-            const check = await fetch("https://63fe-2401-4900-1cbd-f9a6-ed47-89ac-5ba9-9292.in.ngrok.io/auth/login", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                setToken(true);
-                // sessionStorage.setItem("token" ,result.acce);
-                console.log(result)})
-            .catch(error => console.log('error', error));
-        }
+        // const checkUser =  async () => {
+        //     const check = await fetch("https://63fe-2401-4900-1cbd-f9a6-ed47-89ac-5ba9-9292.in.ngrok.io/auth/login", requestOptions)
+        //     .then(response => response.text())
+        //     .then(result => {
+        //         setToken(true);
+        //         // sessionStorage.setItem("token" ,result.acce);
+        //         console.log(result)})
+        //     .catch(error => console.log('error', error));
+        // }
 
-        checkUser();
+        // checkUser();
     }
 
 
@@ -109,7 +110,7 @@ const Login = ({setToken}) =>{
         <LoginSection>
             <form onSubmit={handleSubmit(onSubmit)}>
             
-                <input type="text"  placeholder="Mobile number" {...register("phone",{ required: true})}></input>
+                <input type="text"  placeholder="Email" {...register("email",{ required: true})}></input>
                 <span>{errors.mobileNumber && "this is  not ok"}</span>
                 <input type="password"  placeholder="password"{...register("password",{ required: true})}></input>
                 <input type="submit" className="login" value="Login" />
@@ -136,6 +137,7 @@ const LoginSection = styled.div`
     /* padding-top: 3.5rem; */
     border-radius: 5rem;
     box-shadow: 1px 1px 8px grey;
+    
 
 
     form{
@@ -168,7 +170,7 @@ const LoginSection = styled.div`
 
 
     h4{
-        margin: 1rem 0rem;
+        margin: 0.6rem 0rem;
     }
 
 `
@@ -178,9 +180,6 @@ const Socialsection = styled.div`
     /* flex-direction: column; */
     flex-wrap: wrap;
     width: 100%;
-    .blue{
-        background-color: #000000;
-    }
     .red{
         background-color: #ce2323;
     }
@@ -193,7 +192,7 @@ const Social = styled.div`
     width: 35%;
     height: 4vh;
     text-align: center;
-    margin: 1.4rem auto;
+    margin: 0.6rem auto;
     border-radius: 1rem;
     display: flex;
     align-items: center;

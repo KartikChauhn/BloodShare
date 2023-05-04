@@ -1,23 +1,25 @@
 import styled from "styled-components"
-import ElectionCard from "./ElectionCard";
+import ElectionCard from "./Post";
+import { AiOutlineHome } from 'react-icons/ai';
+
 import recentElection from "../../../utils/list";
 
 import { useNavigate } from "react-router-dom";
 
-const LokSabha = () =>{
+const Panchayat = () =>{
 
     const navigate = useNavigate();
 
     const back = () =>{
-        navigate("/");
+        navigate("/")
     }
 
     return (
 
         <Container>
             <Header>
-                <h1>Lok Sabha</h1>
-                <h3 onClick={back}>Recent/upcoming</h3>
+                <h1>Hospital</h1>
+                <button onClick={back} className="backToHome"><AiOutlineHome/></button>
             </Header>
             <List>
                 {recentElection.map((election)=>{
@@ -51,6 +53,17 @@ const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .backToHome{
+        cursor: pointer;
+        border: none;
+        font-size: 1.4rem;
+        background-color: transparent;
+        color: black;
+        margin-right: 1rem;
+        :hover{
+            color: grey;
+        }
+    }
 `
 
 const List = styled.div`
@@ -62,4 +75,4 @@ const List = styled.div`
     }
     display: flex;
 `
-export default LokSabha;
+export default Panchayat;
